@@ -1,0 +1,32 @@
+{{!-- .row
+
+	//- h1 #{posts}
+
+	.column.quarter
+		h1 Build A PC Sales
+		each model as |sub|
+			each sub.posts as |post|
+				.post
+				.thumb
+					img src="#{post.data.thumbnail}"
+				a href="http://www.reddit.com#{post.data.permalink}"
+					p #{post.data.title} --}}
+
+<div class="row">
+		{{#each model as |sub|}}
+			<div class="column quarter">
+
+			<h2>{{editable-input value=sub.sub on-change=(action 'replaceSub' sub.sub)}}</h2>
+				{{#each sub.posts as |post|}}
+					<div class="post">
+						<div class="thumb">
+							<object data="{{post.preview.images.firstObject.source.url}}" type="image/jpg">
+							  <img src="default.jpg" />
+							</object>
+						</div>
+						<a href="http://www.reddit.com{{post.permalink}}">{{post.title}}</a>
+					</div>
+				{{/each}}
+			</div>
+		{{/each}}
+</div>

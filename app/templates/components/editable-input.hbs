@@ -1,0 +1,5 @@
+{{#if isEditing}}
+	{{input value=_value enter="change"}}
+{{else}}
+	<span {{action 'startEditing'}}>{{value}}</span>
+{{/if}}
